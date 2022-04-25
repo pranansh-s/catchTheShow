@@ -4,7 +4,13 @@ const app = express();
 
 var routes = require('./api/route.js');
 
+const limiter = rateLimit({
+    windowMs: 10 * 60 * 1000,
+    max: 100,
+})
+
 require('dotenv').config();
+app.use(limiter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
