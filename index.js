@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const rateLimit = require("express-rate-limit");
 
 var routes = require('./api/route.js');
 

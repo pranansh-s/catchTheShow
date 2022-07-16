@@ -51,7 +51,7 @@ const listResults = async(req, res) => {
         jsonObject.push(obj);
       });
     }
-    else res.sendStatus(404);
+    else res.statusCode = 404;
 
     var json = JSON.stringify(jsonObject, null, 1);
     res.type('json').send(json);
@@ -106,7 +106,7 @@ const showInfo = async(req, res) => {
       jsonObject.previousEpisode = prev;
       jsonObject.nextEpisode = next;
     }
-    else res.sendStatus(404);
+    else res.statusCode = 404;
 
     var json = JSON.stringify(jsonObject, null, 1);
     res.type('json').send(json);
@@ -131,7 +131,7 @@ const getCast = async(req, res) => {
           jsonObject.push(obj);
         });
       }
-      else res.sendStatus(404);
+      else res.statusCode = 404;
 
       var json = JSON.stringify(jsonObject, null, 1);
       res.type('json').send(json);
@@ -152,7 +152,7 @@ const getEpisode = async(req, res) => {
       jsonObject.name = ep.find('[itemprop=name]').text();
       jsonObject.date = dateParser(ep.find('[itemprop=datePublished]').text().trim());
     }
-    else res.sendStatus(404);
+    else res.statusCode = 404;
 
     var json = JSON.stringify(jsonObject, null, 1);
     res.type('json').send(json);
@@ -177,7 +177,7 @@ const getSeason = async(req, res) => {
         jsonObject.push(obj);
       });
     }
-    else res.sendStatus(404);
+    else res.statusCode = 404;
 
     var json = JSON.stringify(jsonObject, null, 1);
     res.type('json').send(json);
